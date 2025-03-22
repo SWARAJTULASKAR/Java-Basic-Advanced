@@ -1,27 +1,33 @@
 
 public class givenrangePrimeNumber {
 
-    public static boolean givenRange(int n) {
-        int cnt = 0;
-        for (int i = 1; i <= n; i++) {
-            if (n % i == 0) {
-                cnt = cnt + 1;
+    public static boolean isprime(int num) {
+
+        if (num == 1) {
+            return false;
+        }
+        for (int i = 2; i < Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void PrintPrimenumber(int a, int b) {
+        for (int i = a; i <= b; i++) {
+            if (isprime(i)) {
+                System.out.print(i + " ");
 
             }
         }
-        if (cnt == 2) {
-            return true;
-        }
-        return false;
-
     }
 
     public static void main(String[] args) {
-        int n = 20, m = 2;
-        //givenRange(n, m);
-        if (givenRange(n)) {
-            System.out.print(n);
-        }
+
+        int a = 10, b = 17;
+        PrintPrimenumber(a, b);
 
     }
 }
